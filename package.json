@@ -1,0 +1,27 @@
+{
+  "name": "petcare",
+  "version": "1.0.0",
+  "description": "경기지역 공공데이터 제공사이트 경기데이터드림(https://data.gg.go.kr/portal/mainPage.do) 의 동물병원 및 동물약국 공공데이터를 이용하여 사용자 주변의 동물병원과 동물약국을 찾아주고 내 반려동물의 정보를 다른사람과 공유할 수 있는 커뮤니티 겸 정보 제공 사이트입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonseok22/petCare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wonseok22/petCare/issues"
+  },
+  "homepage": "https://github.com/wonseok22/petCare#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2"
+  }
+}
