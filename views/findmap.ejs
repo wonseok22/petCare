@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홈 화면 | Pet Cares</title>
+    <title>내 근처 병원찾기 | Pet Cares</title>
 
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -17,13 +17,14 @@
 <body>
     <div id="wrap">
         <header id="header">
-            <h1 class="logo"><a href="#"><img src="./assets/img/petCaseLogo.png" width="30" height="30">Pet <em>Cares</em></a></h1>
+            <h1 class="logo"><a href="http://localhost:5000/"><img src="./assets/img/petCaseLogo.png" width="30" height="30">Pet <em>Cares</em></a></h1>
             <div class="menu">
-                <ul >
+                <ul>
                     <li><a href="/findMaps">내 근처 병원찾기</a></li>
-                    <li><a href="#">내 정보 공유하기</a></li>
-                    <li><a href="#">미구현</a></li>
-                    <li><a href="#">미구현</a></li>
+                    <li><a href="#">메뉴 영역</a></li>
+                    <li><a href="#">헤더 영역</a></li>
+                    <li><a href="#">컨텐츠 영역</a></li>
+                    <li><a href="#">푸터 영역</a></li>
                 </ul>
             </div>
             <div class="member">
@@ -32,11 +33,12 @@
             </div>
         </header>
         <!-- //header -->
+
+        <div id="map" style="width:600px;height:400px;"></div>
+        <section id="banner" class="imgType">
+            <!-- <img src="img/bg01.jpg" alt="메인 배너"> -->
+        </section>
     </div>
-    <p style="font-size: 50px;">
-        메인 페이지입니다. <br>커뮤니티 사이트 UI 배치 예정입니다. <br>
-        회원가입 및 로그인 기능 우측 상단에 게시 예정입니다. <br>  
-    </p>
 
     <!-- script -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
