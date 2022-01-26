@@ -19,8 +19,8 @@
 
 # Development Environment
 
-- Django Framework 또는 Node.js (예정사항)
-- AWS RDS 사용 (예정사항)
+- Node.js (예정사항)
+- AWS RDS (예정사항)
 
 # References
 
