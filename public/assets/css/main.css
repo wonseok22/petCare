@@ -5,7 +5,7 @@
     min-width: 1200px;
     white-space: nowrap;
     grid-template-columns: 20% 60% 20%;
-    background-color: #FFEB3B;
+    background-color: #FFF77f;
 }
 #header .logo{
     padding: 15px 18px;
@@ -38,7 +38,7 @@
 }
 
 #header .menu li a:hover{
-    background: #fcff60;
+    background: #f7e781 ;
     padding: 15px;
     border-radius: 10px;
 }

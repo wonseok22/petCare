@@ -16,4 +16,4 @@ app.use(router);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-}) //포트 5000번에서 이 앱을 실행한다.
+})
