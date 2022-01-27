@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/wonseok22/petCare#readme",
   "dependencies": {
+    "axios": "^0.25.0",
     "body-parser": "^1.19.1",
     "cheerio": "^1.0.0-rc.10",
     "cors": "^2.8.5",
