@@ -49,14 +49,11 @@
         var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
         
         let logt = "<%= JSON.stringify(logt) %>";
-        logt = logt.replaceAll("&#34;",'\"')
-        logt = JSON.parse(logt)
         let lat = "<%= JSON.stringify(lat) %>";
-        lat = lat.replaceAll("&#34;",'\"')
-        lat = JSON.parse(lat)
         let name = "<%= JSON.stringify(name) %>";
-        name = name.replaceAll("&#34;",'\"')
-        name = JSON.parse(name)
+        logt = JSON.parse(logt.replaceAll("&#34;",'\"'))
+        lat = JSON.parse(lat.replaceAll("&#34;",'\"'))
+        name = JSON.parse(name.replaceAll("&#34;",'\"'))
         var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
         for (let i = 0; i<=Object.keys(logt).length; i++){
             // 마커 이미지의 이미지 크기 입니다
