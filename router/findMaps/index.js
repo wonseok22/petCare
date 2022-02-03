@@ -4,16 +4,15 @@ var router = express.Router()
 var path = require('path')
 var request = require('request')
 var cheerio = require('cheerio')
-
+var rp = require('request-promise')
 const authKey = "1d070a748c594769afd68d31bcb3c6ff";
 const phaUrls = "https://openapi.gg.go.kr/AnimalPharmacy";
 const hosUrls = "https://openapi.gg.go.kr/Animalhosptl";
 const city = 41270;
 
 
-router.get('/', (req, res) => {
-	var pRes = res;
-	var d = {};
+router.get('/', async (req, res) => {
+	var data = {};
 	const option = {
 		KEY: authKey,
 		Type: "json",
@@ -21,33 +20,52 @@ router.get('/', (req, res) => {
 		pSize: '100',
 		SIGUN_CD: city
 	}
-	request.get({
+
+	
+	await rp.get({
 		uri: phaUrls,
-		qs: option,
-	}, function (err, res, body) {
+		qs: option
+	}, async function (err, res, body) {
 		phaData = JSON.parse(body) //json으로 파싱
-		let logt = {};
-		let lat = {};
-		let name = {};
+		let phaLogt = {};
+		let phaLat = {};
+		let phaName = {};
 		for (let i = 0; i < phaData.AnimalPharmacy[1].row.length; i++) {
-			logt[i] = phaData.AnimalPharmacy[1].row[i].REFINE_WGS84_LOGT
-			lat[i] = phaData.AnimalPharmacy[1].row[i].REFINE_WGS84_LAT
-			name[i] = phaData.AnimalPharmacy[1].row[i].BIZPLC_NM
+			phaLogt[i] = phaData.AnimalPharmacy[1].row[i].REFINE_WGS84_LOGT
+			phaLat[i] = phaData.AnimalPharmacy[1].row[i].REFINE_WGS84_LAT
+			phaName[i] = phaData.AnimalPharmacy[1].row[i].BIZPLC_NM
 		}
-		let data = {
-			logt: logt,
-			lat: lat,
-			name: name
-		}
-		d = {
-			logt: logt,
-			lat: lat,
-			name: name
-		}
-		console.log(d)
-		pRes.render('findmap.ejs', data);
+		return new Promise(function(resolve, reject){
+			resolve(
+				data.phaLogt = phaLogt,
+				data.phaLat = phaLat,
+				data.phaName = phaName
+			);
+		})
 	})
-	console.log(d)
+	await rp.get({
+		uri: hosUrls,
+		qs:option
+	}, async function (err, res, body){
+		hosData = JSON.parse(body) //json으로 파싱
+		let hosLogt = {};
+		let hosLat = {};
+		let hosName = {};
+		for (let i = 0; i < hosData.Animalhosptl[1].row.length; i++) {
+			hosLogt[i] = hosData.Animalhosptl[1].row[i].REFINE_WGS84_LOGT
+			hosLat[i] = hosData.Animalhosptl[1].row[i].REFINE_WGS84_LAT
+			hosName[i] = hosData.Animalhosptl[1].row[i].BIZPLC_NM
+		}
+		return new Promise(function(resolve, reject){
+			resolve(
+				data.hosLogt = hosLogt,
+				data.hosLat = hosLat,
+				data.hosName = hosName
+			);
+		})
+	})
+	res.render('findmap.ejs',data);
+
 })
 
 

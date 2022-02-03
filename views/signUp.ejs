@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 | Pet Cares</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- script -->
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1 class="logo"><a href="http://localhost:5000/"><img src="./assets/img/petCaseLogo.png" width="30"
+                        height="30">Pet <em>Cares</em></a></h1>
+            <div class="menu">
+                <ul>
+                    <li><a href="/findMaps">내 근처 병원찾기</a></li>
+                    <li><a href="/board">내 정보 공유하기</a></li>
+                    <li><a href="#">미구현</a></li>
+                    <li><a href="#">미구현</a></li>
+                </ul>
+            </div>
+            <div class="member">
+                <a href="/signUp">회원가입</a>
+                <a href="#">로그인</a>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <div class="container">
+            <form class="login-form" method="post">
+                <div class="row">
+                    <h4>Sign Up</h4>
+                </div>
+
+                <div class="idForm">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input type="text" id="id" class="id" name="id" placeholder="ID"/><br />
+                </div>
+
+                <div class="row margin emailForm">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" name="email" type="text" style="cursor: auto;" class="email" placeholder="Email" />
+                </div>
+
+                <div class="row margin passForm">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input id="password" name="password" type="password" class="pw" placeholder="Password"/>
+                </div>
+
+                <div class="row margin passForm">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input id="password_a" name="cpassword" type="password"class="pw" placeholder="Password Again"/>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn">회원가입</button>
+                    <p class="margin">이미 계정을 갖고 계신가요? <a href="./login">지금 로그인하기</a></p>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- script -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="./assets/js/signup.js"></script>
+
+</body>
+
+</html>

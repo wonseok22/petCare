@@ -1,25 +1,25 @@
 #header {
-    border-bottom: 1px solid #000;
-    display: grid;
-    padding: 5px 10px;
-    min-width: 1200px;
-    white-space: nowrap;
-    grid-template-columns: 20% 60% 20%;
-    background-color: #FFF77f;
+    border-bottom: 1px solid #000 !important;
+    display: grid !important;
+    padding: 5px 10px !important;
+    min-width: 1200px !important;
+    white-space: nowrap !important;
+    grid-template-columns: 20% 60% 20% !important;
+    background-color: #FFF77f !important;
 }
 #header .logo{
-    padding: 15px 18px;
+    padding: 15px 18px !important; 
 }
 #header .logo img{
     margin-right: 3px;
     margin-top: 3px;
 }
 #header .logo a{
-    font-size: 30px;
+    font-size: 30px !important;
 }
 #header .logo a em{
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 18px !important;
+    font-weight: 500 !important;
 
 }
 #header .menu {
@@ -63,9 +63,10 @@
 
 /* map */
 
-#map {
+#mapwrap{
     margin: 3% auto;
 }
+
 
 
 /* board */

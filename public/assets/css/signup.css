@@ -1,0 +1,116 @@
+.medium-small {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    line-height: 2.0;
+}
+
+.login-form {
+    width: 500px;
+    height:600px;
+    padding: 50px, 30px;
+    background-color:#FFFFFF;
+    text-align:center;
+    border-radius: 15px;
+    margin: 3% auto;
+    border: 1px solid #000;
+}
+
+.login-form h4 {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.login-form .center {
+    font-size: 20px;
+    text-align: center;
+}
+
+.login-form-text {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.prefix {
+    padding-right: 10px;
+}
+
+.login-text {
+    margin-top: -6px;
+    margin-left: -6px !important;
+}
+
+.idForm, .passForm, .emailForm{
+    display: flex;
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+
+.margin {
+    padding-bottom: 20px;
+}
+
+.margin a{
+    color: blue;
+}
+
+.id, .pw, .email {
+    border-bottom: 2px solid #000;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+.pointer-events {
+    pointer-events: auto !important;
+}
+
+.input-field>.material-icons {
+    padding-top: 10px;
+}
+
+.input-field div.error {
+    position: relative;
+    top: -1rem;
+    left: 3rem;
+    font-size: 0.8rem;
+    color: #FF4081;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+.btn {
+    position:relative;
+    color: #000;
+    border-radius: 10px;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: #cbd665;
+    background-position: left;
+    background-size: 200%;
+    color:#000;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+  
+  
