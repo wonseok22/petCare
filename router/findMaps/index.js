@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 	}
 
 	
-	await rp.get({
+	await rp.get({ // 동물약국 데이터 받아오기
 		uri: phaUrls,
 		qs: option
 	}, async function (err, res, body) {
@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
 			);
 		})
 	})
-	await rp.get({
+	await rp.get({ // 동물병원 데이터 받아오기
 		uri: hosUrls,
 		qs:option
 	}, async function (err, res, body){
@@ -64,6 +64,7 @@ router.get('/', async (req, res) => {
 			);
 		})
 	})
+	console.log(data)
 	res.render('findmap.ejs',data);
 
 })
