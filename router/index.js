@@ -8,7 +8,7 @@ var signUp = require('./signUp/index')
 
 //url root
 router.get('/', function(req,res){
-    res.sendfile( path.join(__dirname, "../public/main.html"))
+    res.render('main.ejs');
 });
 
 router.use('/findMaps', findMaps);

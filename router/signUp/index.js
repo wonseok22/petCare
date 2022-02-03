@@ -25,14 +25,22 @@ router.post('/', async function (req, res, next) {
 	var password = req.body.password;
 	var cpassword = req.body.cpassword;
 
-	if (password !== cpassword) res.send("비밀번호를 다시 확인해주세요"); // 비밀번호 확인 에러
+	if (password !== cpassword) res.send("비밀번호가 일치하지 않습니다."); // 비밀번호 확인 에러
 
 	var query = "SELECT userid, password, email FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리
 	var rows = await connection.query(query);
 
 	if (rows[0] == undefined) { // sql 제대로 연결되고 중복이 없는 경우
-		var query = " insert into member (userid, password, email) values ('" + id + "','" + password + "','" + email + "');";
-		var rows = await connection.query(query); // 쿼리 실행 
+		var sql = {
+			email : email,
+			userid : id,
+			password : password
+		};
+		// create query 
+		var query = connection.query('insert into member set ?' , sql, function(err,rows){
+			if(err) throw err;
+			else res.render('main.ejs');
+		}); 
 	} else { 
 		// 이미 있음 
 		resultcode = 100;
