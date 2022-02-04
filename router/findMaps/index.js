@@ -64,7 +64,6 @@ router.get('/', async (req, res) => {
 			);
 		})
 	})
-	console.log(data)
 	res.render('findmap.ejs',data);
 
 })
