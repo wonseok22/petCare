@@ -18,39 +18,42 @@ var connection = mysql.createConnection({
 connection.connect();
 
 router.get('/', function (req, res) {
+	console.log("get ajax")
 	res.render('signUp.ejs');
 })
 
 router.post('/', async function (req, res, next) {
 	var id = req.body.id;
+	console.log(id)
 	var email = req.body.email;
-	var password = req.body.password;
-	var cpassword = req.body.cpassword;
+	var password = req.body.pw;
 
-	if (password !== cpassword) res.send("비밀번호가 일치하지 않습니다."); // 비밀번호 확인 에러
-	else {
-		const hashPassword = crypto.createHash('sha512').update(password + salt).digest('hex');
-		console.log(hashPassword)
-		var query = "SELECT userid, password, email FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리
-		var rows = await connection.query(query);
-
-		if (rows[0] == undefined) { // sql 제대로 연결되고 중복이 없는 경우
+	const hashPassword = crypto.createHash('sha512').update(password + salt).digest('hex');
+	console.log(hashPassword)
+	var query = "SELECT userid FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리
+	connection.query(query, function (err, rows) {
+		console.log(rows[0])
+		if (rows.length == 0) { // sql 제대로 연결되고 중복이 없는 경우
 			var sql = {
 				email: email,
 				userid: id,
 				password: hashPassword,
-				salt : salt
+				salt: salt
 			};
 			// create query 
 			var query = connection.query('insert into member set ?', sql, function (err, rows) {
 				if (err) throw err;
-				else res.redirect('/signUp');
+				else {
+					res.send("성공");
+					res.redirect('/main');
+			}
 			});
 		} else {
 			// 이미 있음 
-			resultcode = 100;
+			res.send("중복ID");
 		}
-	}
+	});
+
 
 })
 module.exports = router;

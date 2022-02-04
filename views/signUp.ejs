@@ -38,7 +38,7 @@
         <!-- //header -->
 
         <div class="container">
-            <form class="login-form" method="post">
+            <div class="login-form" >
                 <div class="row">
                     <h4>Sign Up</h4>
                 </div>
@@ -64,11 +64,11 @@
                 </div>
 
                 <div class="row">
-                    <button type="submit" class="btn">회원가입</button>
+                    <button type="button" class="btn" onclick='checkPW();'>회원가입</button>
                     <p class="margin">이미 계정을 갖고 계신가요? <a href="./login">지금 로그인하기</a></p>
 
                 </div>
-            </form>
+            </div>
         </div>
 
     </div>
@@ -77,14 +77,34 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="./assets/js/signup.js"></script>
     <script>
         function checkPW(){
-            var pw = document.getElementsByName('password');
-            var cpw = document.getElementsByName('cpassword');
-            console.log(pw,cpw)
+            var id = $('#id').val();
+            var email = $("#email").val();
+            var pw = $("#password").val();
+            var cpw = $("#password_a").val();
+
+            if (pw!==cpw) alert("비밀번호가 일치하지 않습니다.");
+            else{
+                $.ajax({
+                    url : "/signUp",
+                    type : "POST",
+                    data : {
+                        pw :pw,
+                        id :id,
+                        email : email
+                    },
+                    success : function (data) {
+                        if (data==="중복ID"){
+                            alert("이미 존재하는 ID입니다.");
+                        }
+                        else if(data ==="성공"){
+                            alert("정상적으로 회원가입 되었습니다.");
+                        }
+                    }
+                })
+            }
         }
-        checkPW()
     </script>
 
 </body>
