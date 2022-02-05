@@ -24,15 +24,12 @@ router.get('/', function (req, res) {
 
 router.post('/', async function (req, res, next) {
 	var id = req.body.id;
-	console.log(id)
 	var email = req.body.email;
 	var password = req.body.pw;
 
 	const hashPassword = crypto.createHash('sha512').update(password + salt).digest('hex');
-	console.log(hashPassword)
 	var query = "SELECT userid FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리
 	connection.query(query, function (err, rows) {
-		console.log(rows[0])
 		if (rows.length == 0) { // sql 제대로 연결되고 중복이 없는 경우
 			var sql = {
 				email: email,
@@ -45,7 +42,6 @@ router.post('/', async function (req, res, next) {
 				if (err) throw err;
 				else {
 					res.send("성공");
-					res.redirect('/main');
 			}
 			});
 		} else {
