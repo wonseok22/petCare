@@ -17,6 +17,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+
 router.get('/', function (req, res) {
 	console.log("get ajax")
 	res.render('signUp.ejs');
@@ -26,7 +27,7 @@ router.post('/', async function (req, res, next) {
 	var id = req.body.id;
 	var email = req.body.email;
 	var password = req.body.pw;
-
+	
 	const hashPassword = crypto.createHash('sha512').update(password + salt).digest('hex');
 	var query = "SELECT userid FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리
 	connection.query(query, function (err, rows) {
@@ -37,6 +38,7 @@ router.post('/', async function (req, res, next) {
 				password: hashPassword,
 				salt: salt
 			};
+
 			// create query 
 			var query = connection.query('insert into member set ?', sql, function (err, rows) {
 				if (err) throw err;
