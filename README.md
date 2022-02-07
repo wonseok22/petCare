@@ -3,7 +3,7 @@
  경기지역 공공데이터 제공사이트 경기데이터드림(https://data.gg.go.kr/portal/mainPage.do) 의 동물병원 및 동물약국 공공데이터를 이용하여 사용자 주변의 동물병원과 동물약국을 찾아주고 내 반려동물의 정보를 다른사람과 공유할 수 있는 커뮤니티 겸 정보 제공 사이트입니다.
 
 
-# Development Note
+# Development Record
 
  Link : Node.js를 사용한 웹 사이트 만들기 
  
