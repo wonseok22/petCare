@@ -23,6 +23,8 @@ router.get('/logout', function (req, res) {
     res.clearCookie("user");	
 	res.redirect("/");
 });
+
+
 router.use(cookieParser());
 router.use('/findMaps', findMaps);
 router.use('/board', board);
