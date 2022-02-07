@@ -20,6 +20,7 @@
     "axios": "^0.25.0",
     "body-parser": "^1.19.1",
     "cheerio": "^1.0.0-rc.10",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypt": "^0.0.2",
     "crypto": "^1.0.1",

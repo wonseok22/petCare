@@ -30,7 +30,7 @@
     display: inline-block;
 }
 #header .menu li a{
-    padding: 20px 30px;
+    padding: 20px 30px !important;
     display: inline-block;
     position: relative;
     transition: 0.4s;

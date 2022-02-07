@@ -19,14 +19,19 @@ connection.connect();
 
 
 router.get('/', function (req, res) {
-	console.log("get ajax")
-	res.render('signUp.ejs');
+    if (req.cookies.user){
+        res.render('signUp.ejs', {cookie : req.cookies.user});
+    }
+    else{
+        res.render('signUp.ejs', {cookie: "false"});
+    }
 })
 
 router.post('/', async function (req, res, next) {
 	var id = req.body.id;
 	var email = req.body.email;
 	var password = req.body.pw;
+
 	
 	const hashPassword = crypto.createHash('sha512').update(password + salt).digest('hex');
 	var query = "SELECT userid FROM member where userid='" + id + "';"; // 중복 처리하기위한 쿼리

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 | Pet Cares</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/login.css">
+
+    <!-- script -->
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="header"></div>
+        <div class="container">
+            <form class="login" action="/login" method="post">
+                <h2>로그인</h2>
+                <div class="login_id">
+                    <h4><i class="material-icons prefix">account_circle</i>ID</h4>
+                    <input type="text" name="id" id="id" placeholder="ID">
+                </div>
+                <div class="login_pw">
+                    <h4><i class="material-icons prefix">vpn_key</i>Password</h4>
+                    <input type="password" name="pw" id="pw" placeholder="Password">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="submit">
+                </div>
+            </form>
+        </div>
+        <!-- //container -->
+
+    </div>
+
+    <!-- script -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
+    <script src="./assets/js/header.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        const cookies = "<%= cookie %>";
+        if (cookies === "false") {
+            document.querySelector(".log").innerHTML = "로그인";
+            document.querySelector(".log").href = "/login";
+        } else {
+            document.querySelector(".log").innerHTML = "로그아웃";
+            document.querySelector(".log").href = "/logout";
+        }
+    </script>
+</body>
+
+</html>

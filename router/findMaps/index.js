@@ -64,7 +64,13 @@ router.get('/', async (req, res) => {
 			);
 		})
 	})
-	res.render('findmap.ejs',data);
+	if (req.cookies.user){
+		data.cookie = req.cookies.user
+    }
+	else {
+		data.cookie = "false"
+	}
+	res.render('findmap.ejs', data);
 
 })
 

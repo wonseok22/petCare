@@ -19,33 +19,16 @@
 
 <body>
     <div id="wrap">
-        <header id="header">
-            <h1 class="logo"><a href="http://localhost:5000/"><img src="./assets/img/petCaseLogo.png" width="30"
-                        height="30">Pet <em>Cares</em></a></h1>
-            <div class="menu">
-                <ul>
-                    <li><a href="/findMaps">내 근처 병원찾기</a></li>
-                    <li><a href="/board">내 정보 공유하기</a></li>
-                    <li><a href="#">미구현</a></li>
-                    <li><a href="#">미구현</a></li>
-                </ul>
-            </div>
-            <div class="member">
-                <a href="/signUp">회원가입</a>
-                <a href="#">로그인</a>
-            </div>
-        </header>
-        <!-- //header -->
-
+        <div class="header"></div>
         <div class="container">
             <div class="login-form" >
                 <div class="row">
-                    <h4>Sign Up</h4>
+                    <h4>회원가입</h4>
                 </div>
 
                 <div class="idForm">
                     <i class="material-icons prefix">account_circle</i>
-                    <input type="text" id="id" class="id" name="id" placeholder="ID"/><br />
+                    <input type="text" id="id" class="id" name="id" placeholder="ID 4~19 Words"/><br />
                 </div>
 
                 <div class="row margin emailForm">
@@ -76,16 +59,27 @@
 
     <!-- script -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
+    <script src="./assets/js/header.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
+        const cookies = "<%= cookie %>";
+        if (cookies === "false") {
+            document.querySelector(".log").innerHTML = "로그인";
+            document.querySelector(".log").href = "/login";
+        } else {
+            document.querySelector(".log").innerHTML = "로그아웃";
+            document.querySelector(".log").href = "/logout";
+        }
         function checkPW(){
             var id = $('#id').val();
             var email = $("#email").val();
             var pw = $("#password").val();
             var cpw = $("#password_a").val();
 
-            if (pw!==cpw) alert("비밀번호가 일치하지 않습니다.");
+            if (id.length<4 || id.length >=20) alert("ID가 양식에 적합하지 않습니다.");
+            else if (pw.length<4 || cpw.length<4 )alert("비밀번호는 4자 이상 입력해주세요");
+            else if (pw!==cpw) alert("비밀번호가 일치하지 않습니다.");
             else{
                 $.ajax({
                     url : "/signUp",

@@ -5,7 +5,9 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var router = require('./router/index');
 var passport = require('passport');
+var cookieParser = require('cookie-parser')
 
+app.use(cookieParser())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());

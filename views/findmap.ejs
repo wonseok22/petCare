@@ -80,22 +80,7 @@
 
 <body>
     <div id="wrap">
-        <header id="header">
-            <h1 class="logo"><a href="http://localhost:5000/"><img src="./assets/img/petCaseLogo.png" width="30"
-                        height="30">Pet <em>Cares</em></a></h1>
-            <div class="menu">
-                <ul>
-                    <li><a href="/findMaps">내 근처 병원찾기</a></li>
-                    <li><a href="/board">내 정보 공유하기</a></li>
-                    <li><a href="#">미구현</a></li>
-                    <li><a href="#">미구현</a></li>
-                </ul>
-            </div>
-            <div class="member">
-                <a href="/signUp">회원가입</a>
-                <a href="#">로그인</a>
-            </div>
-        </header>
+        <div class="header"></div>
         <!-- //header -->
         <div id="mapwrap">
             <!-- 지도가 표시될 div -->
@@ -117,9 +102,18 @@
     </div>
 
     <!-- script -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9072a8bb4b56b5b44afb6d6d37a0b2e7"></script>
+    <script src="./assets/js/header.js"></script>
     </script>
     <script>
+        const cookies = "<%= cookie %>";
+        if (cookies === "false") {
+            document.querySelector(".log").innerHTML = "로그인";
+            document.querySelector(".log").href = "/login";
+        } else {
+            document.querySelector(".log").innerHTML = "로그아웃";
+            document.querySelector(".log").href = "/logout";
+        }
         var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
         var options = { //지도를 생성할 때 필요한 기본 옵션
             center: new kakao.maps.LatLng(37.3183169898, 126.8352), //지도의 중심좌표.

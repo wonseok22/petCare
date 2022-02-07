@@ -5,7 +5,12 @@ var path = require('path')
 
 
 router.get('/', function(req, res) {
-	res.render('board.ejs');
+    if (req.cookies.user){
+        res.render('board.ejs', {cookie : req.cookies.user});
+    }
+    else{
+        res.render('board.ejs', {cookie: "false"});
+    }
 })
 
 
