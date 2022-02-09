@@ -5,7 +5,7 @@
     min-width: 1200px !important;
     white-space: nowrap !important;
     grid-template-columns: 20% 60% 20% !important;
-    background-color: #FFF77f !important;
+    background-color: #fff9a4 !important;
 }
 #header .logo{
     padding: 15px 18px !important; 
@@ -64,16 +64,9 @@
 
 /* contents */
 #contents {
-    height: 3000px;
+    height: 1000px;
     width: 100%;
     background-color: #ffb9b9;    
-}
-
-/* footer */
-#footer {
-    height: 500px;
-    width: 100%;
-    background-color: #c3c3c3;
 }
 
 /* map */
