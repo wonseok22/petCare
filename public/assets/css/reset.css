@@ -8,7 +8,77 @@ figure, figcaption {
     box-sizing: border-box;
 }
 
+/* 스킵 메뉴 */
+#skip {
+    position: relative;
+    z-index: 10000;
+}
+
+#skip a {
+    background: #000;
+    color: #fff;
+    position: absolute;
+    left: -400px;
+    top: 0;
+    padding: 20px 40px;
+    display: inline-block;
+    transition: left 0.3s ease-in;
+}
+
+#skip a:active,
+#skip a:focus {
+    left: 5px;
+}
+
+/* clearfix */
+.clearfix {
+    zoom: 1;
+    /* ie 6,7,8 */
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ir 효과 
+ir_pm : 의미있는 이미지의 대체 텍스트를 제공하는 경우
+ir_wa : 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고 싶을 때
+ir_so : 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트를 제공할 때 사용
+*/
+
+.ir_pm {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.ir_wa {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.ir_so {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
 /* 폰트 초기화 */
+
 
 body,button,input,select,table,textarea {
     color: #222;
@@ -43,7 +113,7 @@ ol,ul {
 }
 
 /* 스타일 초기화 */
-em {
+em, address{
     font-style: normal;
 }
 
