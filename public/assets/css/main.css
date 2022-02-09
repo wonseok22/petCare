@@ -39,6 +39,8 @@
 
 #header .menu li a:hover{
     background: #f7e781 ;
+    text-decoration: none;
+    color: #000;
     padding: 15px;
     border-radius: 10px;
 }

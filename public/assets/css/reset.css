@@ -106,7 +106,10 @@ a {
     color: #222;
     text-decoration: none;
 }
-
+a:hover {
+    color: #000 !important;
+    text-decoration: none !important;
+}
 /* 목록 초기화 */ 
 ol,ul {
     list-style:none;
