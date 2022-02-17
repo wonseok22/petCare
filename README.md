@@ -11,15 +11,17 @@ https://recordofwonseok.tistory.com/category/Project/Node.js%EB%A5%BC%20%EC%82%A
 # Contributors
 
 - 한원석 : https://github.com/wonseok22
+- 박종호 : https://github.com/ParkJongho1
+- 이현우 : https://github.com/leehyunwoo9168512181
 
 # Features
 
 (세부사항은 진행하면서 수정 예정입니다.)
 
-- 회원가입, 로그인, 로그아웃 기능 구현
+- 회원가입, 로그인, 로그아웃 기능 
 - 카카오, 네이버, 페이스북 로그인 기능 구현(예정)
 - Cookie를 사용한 로그인 유지 기능
-- 게시판 기능 구현(예정)
+- 게시판 기능 구현
 - 공공 데이터 오픈 API와 Kakao Maps API를 사용한 내 주변의 동물약국 및 동물병원 정보 제공
 - 병원 및 약국별 평점 시스템 도입(예정사항)
 
